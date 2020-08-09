@@ -1,7 +1,7 @@
 import {MnistData} from './data.js';
 var canvas, ctx, saveButton, clearButton;
-var canvas1,ctx1;
-
+var canvas1,ctx1, SaveButton, ClearButton;
+var first,second;
 var pos = {x:0, y:0};
 var Pos = {x:0, y:0};
 var rawImage,rawImage1;
@@ -13,7 +13,7 @@ function getModel() {
 
 	model.add(tf.layers.conv2d({inputShape: [28, 28, 1], kernelSize: 3, filters: 16, activation: 'relu'}));
 	model.add(tf.layers.maxPooling2d({poolSize: [2, 2]}));
-	model.add(tf.layers.conv2d({filters: 32, kernelSize: 3, activation: 'relu'}));
+    model.add(tf.layers.conv2d({filters: 32, kernelSize: 3, activation: 'relu'}));
 	model.add(tf.layers.maxPooling2d({poolSize: [2, 2]}));
 	model.add(tf.layers.flatten());
 	model.add(tf.layers.dense({units: 128, activation: 'relu'}));
@@ -107,27 +107,7 @@ function Erase() {
 	ctx1.fillRect(0,0,280,280);
 }
 
-
-function Save() {
-	var raw = tf.browser.fromPixels(rawImage1,1);
-	var resized = tf.image.resizeBilinear(raw, [28,28]);
-	var tensor = resized.expandDims(0);
-    var prediction = model.predict(tensor);
-    var PIndex = tf.argMax(prediction, 1).dataSync();
-    
-	alert(PIndex);
-}
-function save() {
-	var raw = tf.browser.fromPixels(rawImage,1);
-	var resized = tf.image.resizeBilinear(raw, [28,28]);
-	var tensor = resized.expandDims(0);
-    var prediction = model.predict(tensor);
-    var pIndex = tf.argMax(prediction, 1).dataSync();
-    
-	alert(pIndex);
-}
-var first,second;
-function Digit(second)
+function Digit()
 {
     if(second==1)return "One " ;
     else if(second==2)return "Two " ;
@@ -140,85 +120,113 @@ function Digit(second)
     else if(second==9)return "Nine";
     else return;
 }
-function digit(first,second)
+function digit()
 {
-    if(first == 0)
+   //alert(first);
+    if(first == "0")
         {
-            if(second==0)document.getElementById("demo").innerHTML = "Zero ";
-            else document.getElementById("demo").innerHTML = Digit(second) ;
+            if(second=="0")document.getElementById("demo").innerHTML = "Zero ";
+            else document.getElementById("demo").innerHTML = Digit() ;
         }
-    else if(first==1){
-        if(second==0)document.getElementById("demo").innerHTML = "Ten " ;
-        else if(second==1)document.getElementById("demo").innerHTML = "Eleven " ;
-        else if(second==2)document.getElementById("demo").innerHTML = "Twelve " ;
-        else if(second==3)document.getElementById("demo").innerHTML = "Thirteen " ;
-        else if(second==4)document.getElementById("demo").innerHTML = "Fourteen " ;
-        else if(second==5)document.getElementById("demo").innerHTML = "Fifteen " ;
-        else if(second==6)document.getElementById("demo").innerHTML = "Sixteen " ;
-        else if(second==7)document.getElementById("demo").innerHTML = "Seventeen " ;
-        else if(second==8)document.getElementById("demo").innerHTML = "Eighteen " ;
-        else if(second==9)document.getElementById("demo").innerHTML = "Nineteen " ;
+    else if(first=="1"){
+        if(second=="0")document.getElementById("demo").innerHTML = "Ten " ;
+        else if(second=="1")document.getElementById("demo").innerHTML = "Eleven " ;
+        else if(second=="2")document.getElementById("demo").innerHTML = "Twelve " ;
+        else if(second=="3")document.getElementById("demo").innerHTML = "Thirteen " ;
+        else if(second=="4")document.getElementById("demo").innerHTML = "Fourteen " ;
+        else if(second=="5")document.getElementById("demo").innerHTML = "Fifteen " ;
+        else if(second=="6")document.getElementById("demo").innerHTML = "Sixteen " ;
+        else if(second=="7")document.getElementById("demo").innerHTML = "Seventeen " ;
+        else if(second=="8")document.getElementById("demo").innerHTML = "Eighteen " ;
+        else if(second=="9")document.getElementById("demo").innerHTML = "Nineteen " ;
     }
-    else if(first==2)
+    else if(first=="2")
     {
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Twenty " ;
         else{
-            document.getElementById("demo").innerHTML = "Twenty " + Digit(second);
+            document.getElementById("demo").innerHTML = "Twenty " + Digit();
         }
     }
-    else if(first==3)
+    else if(first=="3")
     {
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Thirty " ;
         else
-            document.getElementById("demo").innerHTML = "Thirty " + Digit(second);
+            document.getElementById("demo").innerHTML = "Thirty " + Digit();
         
     }
-    else if(first==4){
+    else if(first=="4"){
         
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Fourty " ;
         else
-            document.getElementById("demo").innerHTML = "Fourty " + Digit(second);
+            document.getElementById("demo").innerHTML = "Fourty " + Digit();
     }
-    else if(first==5){
+    else if(first=="5"){
         
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Fifty " ;
         else
-            document.getElementById("demo").innerHTML = "Fifty " + Digit(second);
+            document.getElementById("demo").innerHTML = "Fifty " + Digit();
     }
-    else if(first==6){
+    else if(first=="6"){
         
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Sixty " ;
         else
-            document.getElementById("demo").innerHTML = "Sixty " + Digit(second);
+            document.getElementById("demo").innerHTML = "Sixty " + Digit();
     }
-    else if(first==7){
+    else if(first=="7"){
         
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Seventy " ;
         else
-            document.getElementById("demo").innerHTML = "Seventy " + Digit(second);
+            document.getElementById("demo").innerHTML = "Seventy " + Digit();
     }
-    else if(first==8){
+    else if(first=="8"){
         
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Eighty " ;
         else
-            document.getElementById("demo").innerHTML = "Eighty " + Digit(second);
+            document.getElementById("demo").innerHTML = "Eighty " + Digit();
     }
-    else if(first==9){
+    else if(first=="9"){
         
-        if(second==0)
+        if(second=="0")
             document.getElementById("demo").innerHTML = "Ninety " ;
         else
-            document.getElementById("demo").innerHTML = "Ninety " + Digit(second);
+            document.getElementById("demo").innerHTML = "Ninety " + Digit();
     }
  //   else return;
 }
+
+function Save() {
+	var raw = tf.browser.fromPixels(rawImage1,1);
+	var resized = tf.image.resizeBilinear(raw, [28,28]);
+	var tensor = resized.expandDims(0);
+    var prediction = model.predict(tensor);
+    var PIndex = tf.argMax(prediction, 1).dataSync();
+    second = PIndex;
+    //alert(second);
+    document.getElementById("Sec").innerHTML = first+ second;
+    digit();
+	
+}
+function save() {
+	var raw = tf.browser.fromPixels(rawImage,1);
+	var resized = tf.image.resizeBilinear(raw, [28,28]);
+	var tensor = resized.expandDims(0);
+    var prediction = model.predict(tensor);
+    var pIndex = tf.argMax(prediction, 1).dataSync();
+    first = pIndex;
+    //alert(first);
+   // document.getElementById("demo").innerHTML = first;
+    //digit();
+	
+}
+
+
 
 function init() {
 	canvas = document.getElementById('canvas');
@@ -229,9 +237,9 @@ function init() {
 	canvas.addEventListener("mousemove", draw);
 	canvas.addEventListener("mousedown", setPosition);
 	canvas.addEventListener("mouseenter", setPosition);
-	var saveButton = document.getElementById('sb');
-	first = saveButton.addEventListener("click", save);
-	var clearButton = document.getElementById('cb');
+	saveButton = document.getElementById('sb');
+	saveButton.addEventListener("click", save);
+	clearButton = document.getElementById('cb');
 	clearButton.addEventListener("click", erase);
     
     
@@ -244,9 +252,9 @@ function init() {
 	canvas1.addEventListener("mousemove", Draw);
 	canvas1.addEventListener("mousedown", SetPosition);
 	canvas1.addEventListener("mouseenter", SetPosition);
-	var SaveButton = document.getElementById('sb');
-	second = SaveButton.addEventListener("click", Save);
-	var ClearButton = document.getElementById('cb');
+	SaveButton = document.getElementById('sb');
+	SaveButton.addEventListener("click", Save);
+	ClearButton = document.getElementById('cb');
 	ClearButton.addEventListener("click", Erase);
     //digit(first,second);
     //document.getElementById("Sec").innerHTML = first + second;
