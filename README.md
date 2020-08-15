@@ -1,9 +1,9 @@
 # Learn Two-Digit Number: Project Overview
- #### 1. Create a web application to draw a two-digit number and learn what it is. 
- #### 2. Train the model locally on the browser.
- #### 3. To optimize the pretraining time data is loaded in the form of Sprit Sheet.
- #### 4. Visualization of model training is done using tfvis.show() TensorFlow function.
- #### 5. CNN model is trained on the MNIST dataset.
+1. Create a web application to draw a two-digit number and learn what it is. 
+2. Train the model locally on the browser.
+3. To optimize the pretraining time data is loaded in the form of Sprit Sheet.
+4. Visualization of model training is done using tfvis.show() TensorFlow function.
+5. CNN model is trained on the MNIST dataset.
 
 
 After you open this application it will take some time to train. the dynamic plot of model training will be displayed on-page. An alert message will conclude training of model then you can start learning two-digit numbers.
