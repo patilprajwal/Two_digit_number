@@ -6,7 +6,7 @@
 5. CNN model is trained on the MNIST dataset.
 
 
-After you open this application it will take some time to train. the dynamic plot of model training will be displayed on-page. An alert message will conclude training of model then you can start learning two-digit numbers.
+After you open this application it will take some time to train. The dynamic plot of model training will be displayed on-page. An alert message will conclude training of model then you can start learning two-digit numbers.
  
 ## Steps to use after training is over:
 	1. Draw any integer between 0-9 on any or both canvas displayed on the page.
