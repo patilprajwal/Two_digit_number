@@ -2,6 +2,7 @@
 ## CNN Digit Recognition using MNIST Dataset 
 Model is trained on browser localy and MNIST Dataset is used to train the model. To optimise the pretraining time data is loaded in the form of Sprit Sheet. Visualisation of model training is done using tfvis.show() tensorflow function.
 
+
 After you open this application it will take some time to train the dynamic plot of model training will be displayed on page. A alert message will conclude training of model then you can start learning two digit numbers.
  
 ## Steps to use after training is over:
@@ -15,3 +16,4 @@ Note: If you draw no digit on any of the canvas it will be considered as 0.
 2. HTML
 3. MNIST Dataset
 4. TensorFlow JS
+5. Sprite Sheet
