@@ -7,7 +7,8 @@
 
 
 After you open this application it will take some time to train. The dynamic plot of model training will be displayed on-page. An alert message will conclude training of model then you can start learning two-digit numbers.
- 
+### 
+[](https://github.com/patilprajwal/Two_digit_number.github.io/blob/master/epoch%20end.png)
 ## Steps to use after training is over:
 	1. Draw any integer between 0-9 on any or both canvas displayed on the page.
 	2. Click on the Classify button.
